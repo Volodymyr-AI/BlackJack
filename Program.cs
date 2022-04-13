@@ -5,7 +5,21 @@ namespace BlackJack
 {
     internal class Program
     {
-        
+        private static Deck deck = new Deck();
+        private static Player player = new Player();
+
+        private enum GameResult
+        {
+            PUSH,
+            PLAYER_WIN,
+            PLAYER_LOST,
+            DEAKER_WIN,
+            SURRENDER,
+            PLAYER_BLACKJACK,
+            INVALID_BET
+        }
+
+
 
         static void Main(string[] args)
         {
