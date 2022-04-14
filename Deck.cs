@@ -32,7 +32,7 @@ namespace BlackJack
         }
 
         //remove top 2 card of deck and turn into list
-        public List<Card> Dealhand()
+        public List<Card> DealHand()
         {
             List<Card> hand = new List<Card>();
             hand.Add(cards[0]);

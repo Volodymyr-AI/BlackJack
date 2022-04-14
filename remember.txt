@@ -1,0 +1,4 @@
+﻿PLAYER_BUST = PLAYER_LOST
+
+ClearBet == DenyBet
+ReturnBet == CancelBet

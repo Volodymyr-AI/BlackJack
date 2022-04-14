@@ -15,12 +15,13 @@ namespace BlackJack
 
         public List<Card> Hand { get; set; }
 
+        
         public void AddBet(int bet)
         {
             Bet += bet;
             Chips -= bet;
         }
-
+        //set bet to 0
         public void DenyBet()
         {
             Bet = 0;
