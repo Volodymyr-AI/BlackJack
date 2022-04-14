@@ -19,7 +19,7 @@ namespace BlackJack
             INVALID_BET
         }
 
-
+        
 
         static void Main(string[] args)
         {
