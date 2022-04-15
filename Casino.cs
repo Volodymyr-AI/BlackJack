@@ -37,7 +37,7 @@ namespace BlackJack
             int chipsWon;
             if (blackjack)
             {
-                chipsWon = (int)Math.Floor(Bet * 3);
+                chipsWon = (int)Math.Floor(Bet * 2.5);
             }
             else
             {
@@ -51,10 +51,35 @@ namespace BlackJack
         public int GetHandValue()
         {
             int value = 0;
-            foreach(Card card int Hand){
+            foreach(Card card in Hand){
                 value += card.Value;
             }
             return value;
+        }
+        //output player's hand to console
+        public void WriteHand()
+        {
+            Console.WriteLine("Bet: ");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write(Bet + " ");
+            Casino.ResetColor();
+            Console.Write("Chips: ");
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.ResetColor();
+            Console.Write("Wins: ");
+            Console.ForegroundColor=ConsoleColor.Yellow;
+            Console.WriteLine(Wins);
+            Console.ResetColor();
+            Console.WriteLine("Round #" + HandsCompleted);
+
+            Console.WriteLine();
+            Console.WriteLine("Your Hand (" + GetHandValue() + "):");
+            foreach(Card card in Hand)
+            {
+                card.WriteDescription();
+            }
+            Console.WriteLine();
+
         }
     }
 
@@ -99,7 +124,7 @@ namespace BlackJack
     }
     internal class Casino
     {
-        private static int MinimumBet { get; set; } = 20;
+        public static int MinimumBet { get; set; } = 20;
         
         //check hand; check hand for blackjack
         public static bool IsHandIsBlackJack(List<Card> hand)
