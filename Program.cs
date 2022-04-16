@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Linq;
 
 namespace BlackJack
 {
-
-    internal class Program
+    public class Program
     {
         private static Deck deck = new Deck();
         private static Player player = new Player();
 
+        // greeting player
+        static string Acquaintance()
+        {
+            Console.Write("What is your name: ");
+            string name = Console.ReadLine();
+            player.Name = name;
+            return name;
+        }
         private enum RoundResult
         {
             PUSH,
@@ -125,12 +133,12 @@ namespace BlackJack
                     player.WriteHand();
                     Dealer.WriteHand();
 
-                    Console.Write("Enter Action: ");
+                    Console.Write( player.Name + " enter Action (? for help): ");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     action = Console.ReadLine();
                     Casino.ResetColor();
 
-                    switch (action.ToLower())
+                    switch (action.ToUpper())
                     {
                         case "HIT":
                             player.Hand.Add(deck.DrawCard());
@@ -264,6 +272,7 @@ namespace BlackJack
             Console.WriteLine("Welcome to BlackJack♠♥♣♦");
             Console.WriteLine("Press <Enter> to start");
             Console.ReadKey();
+            Acquaintance();
             StartRound();
         }
     }

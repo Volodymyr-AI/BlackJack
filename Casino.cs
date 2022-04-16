@@ -6,12 +6,37 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
+    public class Casino
+    {
+        public static int MinimumBet { get; set; } = 20;
+
+        //check hand; check hand for blackjack
+        public static bool IsHandIsBlackJack(List<Card> hand)
+        {
+            if (hand.Count == 2)
+            {
+                if (hand[0].Face == Face.Ace && hand[1].Value == 10) return true;
+                else if (hand[1].Face == Face.Ace && hand[0].Value == 10) return true;
+            }
+
+            return false;
+        }
+
+        // console colors to darkgrey on black
+        public static void ResetColor()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+
+    }
     public class Player
     {
         public int Chips { get; set; } = 500;
         public int Bet { get; set; }
         public int  Wins { get; set; }
         public int HandsCompleted { get; set; } = 1;
+        public string Name { get; set; }
 
         public List<Card> Hand { get; set; }
 
@@ -122,28 +147,5 @@ namespace BlackJack
             Console.WriteLine();
         }
     }
-    internal class Casino
-    {
-        public static int MinimumBet { get; set; } = 20;
-        
-        //check hand; check hand for blackjack
-        public static bool IsHandIsBlackJack(List<Card> hand)
-        {
-            if(hand.Count == 2)
-            {
-                if (hand[0].Face == Face.Ace && hand[1].Value == 10) return true;
-                else if (hand[1].Face == Face.Ace && hand[0].Value == 10) return true;
-            }
-            
-            return false;
-        }
-
-        // console colors to darkgrey on black
-        public static void ResetColor()
-        {
-            Console.ForegroundColor= ConsoleColor.DarkGray;
-            Console.BackgroundColor = ConsoleColor.Black;
-        }
-
-    }
+    
 }
