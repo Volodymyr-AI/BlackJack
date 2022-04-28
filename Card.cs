@@ -20,6 +20,7 @@ namespace BlackJack
 
     public enum Face
     {
+        Ace,
         Two,
         Three,
         Four,
@@ -31,8 +32,8 @@ namespace BlackJack
         Ten,
         Jack,
         Queen,
-        King,
-        Ace
+        King
+        
     }
     public class Card
     {

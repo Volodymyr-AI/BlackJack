@@ -23,7 +23,7 @@ namespace BlackJack
 
             for(int i = 0; i < 13; i++)
             {
-                for(int j = i; j < 4; j++)
+                for(int j = 0; j < 4; j++) // here N(O) != 1 
                 {
                     coldDeck.Add(new Card((Suit)j, (Face)i));
                 }
